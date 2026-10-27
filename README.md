@@ -263,6 +263,8 @@ mc-option-pricing/
 4. Shreve S. *Stochastic Calculus for Finance II: Continuous-Time Models.* Springer, 2004.
 5. Документация NumPy: `numpy.random.Generator`.
 
+*(Сверьте издания и годы с книгами, которые вы реально используете в работе.)*
 
+## Лицензия
 
-
+MIT. В файле `LICENSE` замените `<ВАШЕ ИМЯ>` на своё.
