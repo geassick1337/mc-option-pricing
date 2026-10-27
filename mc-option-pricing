@@ -1,0 +1,6 @@
+   git init
+   git add .
+   git commit -m "Monte Carlo option pricing research project"
+   git branch -M main
+   git remote add origin https://github.com/<ваш-логин>/mc-option-pricing.git
+   git push -u origin main
