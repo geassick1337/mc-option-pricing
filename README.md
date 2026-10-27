@@ -214,48 +214,7 @@ SE = σ_X / √N,     σ_X = √Var(X)
 - Азиатский или барьерный опцион (где нет простой формулы).
 - Схема Эйлера по шагам времени: ошибка дискретизации против статистической ошибки.
 
-## 10. Как запустить
-
-```bash
-git clone https://github.com/<ваш-логин>/mc-option-pricing.git
-cd mc-option-pricing
-python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-
-python tests/test_pricing.py        # проверка корректности (8 тестов)
-python run_experiments.py           # полный запуск (графики -> figures/, таблицы -> results/)
-python run_experiments.py --quick   # быстрая проверка
-```
-
-Минимальный пример использования:
-
-```python
-import numpy as np
-from mcoptions import Params, black_scholes_call, mc_call
-
-p = Params(S0=100, K=100, T=1, r=0.05, sigma=0.2)
-rng = np.random.default_rng(0)
-estimate, std_error = mc_call(p, n=100_000, rng=rng)
-print(estimate, "±", 1.96 * std_error, "| точно:", black_scholes_call(p))
-```
-
-## 11. Структура репозитория
-
-```
-mc-option-pricing/
-├── mcoptions/
-│   ├── __init__.py
-│   └── pricing.py            # модель, Блэк — Шоулз, Монте-Карло, траектории
-├── tests/test_pricing.py     # тесты (паритет пут-колл, сходимость, теория σ_X и др.)
-├── run_experiments.py        # все эксперименты и графики
-├── results/                  # CSV-таблицы и summary.json
-├── figures/                  # графики
-├── docs/THEORY_SIMPLE.md     # теория простыми словами
-├── requirements.txt
-└── LICENSE
-```
-
-## 12. Литература и источники
+## 1-. Литература и источники
 
 1. Black F., Scholes M. *The Pricing of Options and Corporate Liabilities.* Journal of Political Economy, 1973.
 2. Glasserman P. *Monte Carlo Methods in Financial Engineering.* Springer, 2003.
@@ -263,8 +222,3 @@ mc-option-pricing/
 4. Shreve S. *Stochastic Calculus for Finance II: Continuous-Time Models.* Springer, 2004.
 5. Документация NumPy: `numpy.random.Generator`.
 
-*(Сверьте издания и годы с книгами, которые вы реально используете в работе.)*
-
-## Лицензия
-
-MIT. В файле `LICENSE` замените `<ВАШЕ ИМЯ>` на своё.
